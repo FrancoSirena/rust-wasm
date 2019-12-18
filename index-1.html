@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      WebAssembly.instantiateStreaming(
+        fetch("rust.gc.wasm"))
+      .then(module => {
+        const r = module.instance.exports.add_one(2);
+        const text = document.createTextNode(r)
+        document.body.appendChild(text)
+      })
+    </script>
+  </body>
+</html>

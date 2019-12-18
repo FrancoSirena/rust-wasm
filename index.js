@@ -1,0 +1,1 @@
+import('./pkg/rust').then(mod => mod.run_str());
